@@ -30,6 +30,7 @@ class VisiteurController extends MainController{
         ];
         $this->genererPage($data_page);
     }
+    
     public function creerCompte(){
         $data_page = [
             "page_description" => "Page de création compte",

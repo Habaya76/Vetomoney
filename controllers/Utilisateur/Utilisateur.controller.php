@@ -25,6 +25,7 @@ class UtilisateurController extends MainController
             header("Location: " . URL . "login");
         }
     }
+
     public function profil()
     {
         $datas = $this->utilisateurManager->getUserInformation($_SESSION['profil']['email']);
@@ -40,6 +41,7 @@ class UtilisateurController extends MainController
         ];
         $this->genererPage($data_page);
     }
+    
     //fonction deconnexion j'ai supprimer le contenue de la variable globale $_session 
     public function deconnexion()
     {
@@ -48,6 +50,7 @@ class UtilisateurController extends MainController
         unset($_SESSION['profil']);
         header("Location: " . URL . "accueil");
     }
+    
     // dans cette fonction je verifier si le email soumis n'est pas en basse de données 
     public function validation_creerCompte($email, $password, $nom, $prenom, $pays, $telephone)
     {
@@ -78,6 +81,8 @@ class UtilisateurController extends MainController
         }
         header("Location: " . URL . "compte/profil");
     }
+
+
     public function modificationPassword(){
         $data_page = [
             "page_description" => "Page de modification mot de passe",
@@ -111,6 +116,7 @@ class UtilisateurController extends MainController
     }
 
     
+    
     public function suppressionCompte(){
         $this->dossierSuppressionImageUtilisateur($_SESSION['profil']['email']);
         rmdir("public/Assets/images/profils/".$_SESSION['profil']['email']);
@@ -123,6 +129,7 @@ class UtilisateurController extends MainController
             header("Location: ".URL."compte/profil");
         }
     }
+
 
     public function validation_modificationImage($file){
         try{

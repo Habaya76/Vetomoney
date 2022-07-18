@@ -42,6 +42,7 @@ class UtilisateurManager extends MainManager
         $stmt->closeCursor();
         return $resultat;
     }
+    
     public function bdCreerCompte($passwordCrypte, $email, $nom, $prenom, $pays, $telephone,$role)
     {
         $req = "INSERT INTO `users`(`nom`, `prenom`, `pays`, `telephone`, `email`, `est_valide`, `clef`, `password`, `role`, `image`)
@@ -59,6 +60,7 @@ class UtilisateurManager extends MainManager
         $stmt->closeCursor();
         return $estModifier;
     }
+
     public function bdModificationMailUser($id_users, $email)
     {
         $req = "UPDATE users set email = :email WHERE id_users= :id_users";

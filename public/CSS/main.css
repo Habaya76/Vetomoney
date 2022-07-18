@@ -4,10 +4,20 @@
 }
 
 /*****************************************LA PARTIE RESPONSIVE********************************************************* */
-@media(max-width:800px){
-    article{
-        display: none;
+
+@media(max-width: 500px){
+    .article .reçu, .tax a{
+        display:block
     }
+    .article .reçu{
+       margin: auto;
+       margin-top: 30px;
+    }
+    .etape_envoi{
+        display: flex;
+        flex-direction: column;
+    }
+    
 }
 
 
@@ -99,6 +109,7 @@ article .application .paragraphe .logo_telechargement {
     margin-top: 20px;
 }
 
+
 #button,#btnValidation {
  background-color: #2f4f4f;
  width: 30%;
@@ -119,6 +130,7 @@ article .application .paragraphe .logo_telechargement {
     background-color: #14213D;
    
 }
+
 footer .row{
     margin: 20px;
     color: rgb(134, 131, 131);

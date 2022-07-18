@@ -1,3 +1,4 @@
+
 <?php
 session_start();
 
@@ -5,9 +6,7 @@ define("URL", str_replace("index.php", "", (isset($_SERVER['HTTPS']) ? "https" :
     "://" . $_SERVER['HTTP_HOST'] . $_SERVER["PHP_SELF"]));
 
 require_once("./controllers/Toolbox.class.php");
-
 require_once("./controllers/Securite.class.php");
-
 require_once("./controllers/Visiteur/Visiteur.controller.php");
 require_once("./controllers/Utilisateur/Utilisateur.controller.php");
 require_once("./controllers/Administrateur/Administrateur.controller.php");
@@ -27,6 +26,7 @@ try {
         case "accueil":
             $visiteurController->accueil();
             break;
+            
         case "login":
             $visiteurController->login();
             break;
@@ -81,13 +81,16 @@ try {
                     case "profil":
                         $utilisateurController->profil();
                         break;
+                        // la deconnexion 
                     case "deconnexion":
                         $utilisateurController->deconnexion();
-
                         break;
+                        
                     case "validation_modificationMail":
                         $utilisateurController->validation_modificationMail(Securite::secureHTML($_POST['email']));
                         break;
+
+
                     case "modificationPassword":
                         $utilisateurController->modificationPassword();
                         break;
@@ -103,6 +106,8 @@ try {
                             header("Location: " . URL . "compte/modificationPassword");
                         }
                         break;
+
+
                     case "suppressionCompte":
                         $utilisateurController->suppressionCompte();
                         break;

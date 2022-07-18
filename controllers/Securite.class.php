@@ -6,8 +6,10 @@ class Securite{
         return htmlentities($chaine);
     }
     public static function estConnecte(){
-        return (!empty($_SESSION['profil']['role']));
+        return (!empty($_SESSION['profil']['email']));
     }
+
+    
     public static function estUtilisateur(){
         return ($_SESSION['profil']['role'] === "utilisateur");
     }
