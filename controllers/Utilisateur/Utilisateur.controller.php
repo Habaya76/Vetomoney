@@ -56,7 +56,6 @@ class UtilisateurController extends MainController
     {
         if ($this->utilisateurManager->verifLoginDisponible($email)) {
             $passwordCrypte = password_hash($password, PASSWORD_DEFAULT);
-            $clef = rand(0, 9999);
             if ($this->utilisateurManager->bdCreerCompte($passwordCrypte, $email, $nom, $prenom, $pays, $telephone,"utilisateur")) {
 
                 Toolbox::ajouterMessageAlerte("La compte a été créé!", Toolbox::COULEUR_VERTE);
